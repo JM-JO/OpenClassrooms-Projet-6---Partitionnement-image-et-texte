@@ -12,8 +12,7 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 # Load data
-data_dir = Path(__file__).parent / 'data' / 'Flipkart'
-filepath = data_dir / 'flipkart_com-ecommerce_sample_1050.csv'
+filepath = Path(__file__).parent.parent / 'flipkart_com-ecommerce_sample_1050.csv'
 df = pd.read_csv(filepath)
 df["main_category"] = df.product_category_tree.apply(lambda s: s.split(' >> ')[0].replace('["', ""))
 
